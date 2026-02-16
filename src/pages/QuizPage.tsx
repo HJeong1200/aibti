@@ -39,20 +39,20 @@ export default function QuizPage() {
              {/* Options would go here. For UI demo we hardcode buttons */}
              <Button 
                 variant="outline" 
-                className="w-full text-left justify-start h-auto py-4 px-6 text-base hover:border-primary hover:bg-primary/5 transition-all"
+                className="w-full text-left justify-start h-auto py-6 px-6 text-base whitespace-normal leading-relaxed hover:border-primary hover:bg-primary/5 transition-all group"
                 onClick={handleAnswer}
              >
-                <div className="font-semibold mr-2">A.</div>
-                {t('quiz.q1_a')}
+                <div className="font-bold mr-3 text-lg text-muted-foreground group-hover:text-primary transition-colors">A.</div>
+                <span>{t('quiz.q1_a')}</span>
              </Button>
              
              <Button 
                 variant="outline" 
-                className="w-full text-left justify-start h-auto py-4 px-6 text-base hover:border-primary hover:bg-primary/5 transition-all"
+                className="w-full text-left justify-start h-auto py-6 px-6 text-base whitespace-normal leading-relaxed hover:border-primary hover:bg-primary/5 transition-all group"
                 onClick={handleAnswer}
              >
-                <div className="font-semibold mr-2">B.</div>
-                {t('quiz.q1_b')}
+                <div className="font-bold mr-3 text-lg text-muted-foreground group-hover:text-primary transition-colors">B.</div>
+                <span>{t('quiz.q1_b')}</span>
              </Button>
         </CardContent>
         <CardFooter className="justify-center text-xs text-muted-foreground">
