@@ -1,5 +1,6 @@
 
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import ResultPage from './ResultPage';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
@@ -48,6 +49,15 @@ describe('ResultPage', () => {
 
     // Check for screenshot prompt
     expect(screen.getByText(/Don't forget to save your result with a screenshot!/i)).toBeInTheDocument();
+
+    // Check Show More button exists
+    const showMoreButton = screen.getByText(/Show Detailed Analysis/i);
+    expect(showMoreButton).toBeInTheDocument();
+
+    // Click Show More and check for details
+    await userEvent.click(showMoreButton);
+    expect(screen.getByText(/Prompting Energy/i)).toBeInTheDocument();
+    expect(screen.getByText(/You treat the LLM as a sophisticated compiler/i)).toBeInTheDocument(); // S trait description
   });
 
   it('redirects to test if no answers provided', async () => {

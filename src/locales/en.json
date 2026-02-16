@@ -109,5 +109,73 @@
       "quote": "Refining logic in the terminal with absolute discipline.",
       "desc": "You are the most systematic developer. You provide heavy specs and use terminal agents to refine code through a strictly imperative, long-form loop. You don't want help or \"vibes\"—you want a tool that can handle disciplined, high-precision engineering."
     }
+  },
+  "dimensions": {
+    "show_more": "Show Detailed Analysis",
+    "show_less": "Hide Analysis",
+    "energy": {
+      "title": "Prompting Energy",
+      "desc": "How you bridge the gap between human thought and machine execution.",
+      "V": {
+        "title": "Vibe-Driven / Intuitive",
+        "philosophy": "You treat the LLM as a high-level reasoning engine that understands context and intent.",
+        "strengths": "Rapid prototyping and UI/UX creativity. Excellent for 0-to-1 development where the final form isn't yet clear.",
+        "pitfall": "Can lead to logic that doesn't fit your existing codebase's specific constraints."
+      },
+      "S": {
+        "title": "Spec-Heavy / Structured",
+        "philosophy": "You treat the LLM as a sophisticated compiler that requires strict, detailed blueprints.",
+        "strengths": "High reliability and architectural consistency. You rarely have to fix \"dumb\" mistakes.",
+        "pitfall": "High \"Prompting Overhead.\" You might spend more time writing the prompt than coding it yourself."
+      }
+    },
+    "interaction": {
+      "title": "Interaction Loop",
+      "desc": "How you manage the flow of work and iteration.",
+      "K": {
+        "title": "One-Shot King / Atomic",
+        "philosophy": "The goal is the \"Golden Response.\" You prefer a stateless workflow where each task is a finished unit.",
+        "strengths": "Extreme efficiency and clean context management. You avoid \"context drift\" where the AI gets confused by old errors.",
+        "pitfall": "Doesn't handle complex, multi-step system migrations well."
+      },
+      "R": {
+        "title": "Infinite Refiner / Iterative",
+        "philosophy": "Development is a conversation. You \"pair-program\" with the AI, slowly sculpting the logic until it reaches perfection.",
+        "strengths": "Deep integration and superior logic verification. You catch edge cases by \"talking them through.\"",
+        "pitfall": "Can lead to \"lazy\" patches where the AI fixes a fix, making the final code messy."
+      }
+    },
+    "relationship": {
+      "title": "Bot Relationship",
+      "desc": "The social and psychological dynamic of your interaction.",
+      "H": {
+        "title": "Polite Humanist / Collaborative",
+        "philosophy": "You believe that a conversational, high-context tone triggers better reasoning paths in the model.",
+        "strengths": "Better \"Agentic\" alignment. Politeness often leads to more detailed and helpful explanations.",
+        "pitfall": "Token wastage. You might spend too much time \"explaining yourself\" to a machine."
+      },
+      "T": {
+        "title": "Cold Taskmaster / Transactional",
+        "philosophy": "Maximum utility, zero friction. The AI is a tool—a high-powered calculator for code.",
+        "strengths": "Pure speed and efficiency. You get the code without any \"fluff.\"",
+        "pitfall": "\"No yapping\" can sometimes cut off useful warnings or alternative suggestions."
+      }
+    },
+    "battleground": {
+      "title": "The Battleground",
+      "desc": "Your technical environment and tool-chain integration preference.",
+      "G": {
+        "title": "GUI-Resident / Visual",
+        "philosophy": "Seeing is believing. You rely on visual feedback like Sidebars and Diff views inside your editor.",
+        "strengths": "Low cognitive load and high \"flow\" state. It’s easy to manually review and accept changes.",
+        "pitfall": "Dependency on specific editor features. If the UI changes, your workflow might break."
+      },
+      "C": {
+        "title": "CLI-Commando / Systematic",
+        "philosophy": "Automation and autonomy. You prefer the raw power of the terminal where agents execute shell commands.",
+        "strengths": "Massive scale. You can automate sweeping changes across entire repositories simultaneously.",
+        "pitfall": "Lower \"visibility.\" It’s harder to catch a small logical error in a massive automated output."
+      }
+    }
   }
 }
