@@ -1,34 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Share2, RefreshCw, Check, ChevronDown, ChevronUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useLocation, Navigate } from "react-router-dom";
-import { calculateScore, PersonalityResult } from "@/utils/scoring";
-import { useMemo, useState } from "react";
+import { useQuizResult } from "@/hooks/useQuizResult";
 
 export default function ResultPage() {
   const { t } = useTranslation();
-  const location = useLocation();
-  const answers = location.state?.answers as Record<number, number> | undefined;
-  const [isCopied, setIsCopied] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-
-  const handleShare = async () => {
-    try {
-      const url = `${window.location.origin}${import.meta.env.BASE_URL}`;
-      await navigator.clipboard.writeText(url);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
-  const result: PersonalityResult | null = useMemo(() => {
-    if (!answers) return null;
-    return calculateScore(answers);
-  }, [answers]);
+  const {
+    result,
+    answers,
+    isCopied,
+    showDetails,
+    handleShare,
+    toggleDetails
+  } = useQuizResult();
 
   if (!answers) {
     return <Navigate to="/test" replace />;
@@ -75,7 +61,7 @@ export default function ResultPage() {
             <div className="mt-8">
                <Button 
                   variant="ghost" 
-                  onClick={() => setShowDetails(!showDetails)}
+                  onClick={toggleDetails}
                   className="w-full flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground mb-4"
                >
                   {showDetails ? (

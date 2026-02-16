@@ -1,51 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { questions } from "@/data/questions";
-
-// Fisher-Yates shuffle
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-};
+import { useQuiz } from "@/hooks/useQuiz";
 
 export default function QuizPage() {
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
-
-  // Shuffle questions once on mount
-  const shuffledQuestions = useMemo(() => shuffleArray(questions), []);
-
-  const currentQuestion = shuffledQuestions[currentQuestionIndex];
-  const totalQuestions = shuffledQuestions.length;
-  
-  const progress = ((currentQuestionIndex) / totalQuestions) * 100;
-
-  const handleAnswer = (score: number) => {
-    const newAnswers = [...answers, score];
-    setAnswers(newAnswers);
-
-    if (currentQuestionIndex < totalQuestions - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-    } else {
-      // Finished
-      const answersMap: Record<number, number> = {};
-      newAnswers.forEach((score, index) => {
-        const questionId = shuffledQuestions[index].id;
-        answersMap[questionId] = score;
-      });
-      navigate("/result", { state: { answers: answersMap } });
-    }
-  };
+  const { 
+    currentQuestion, 
+    currentQuestionIndex, 
+    totalQuestions, 
+    progress, 
+    submitAnswer 
+  } = useQuiz();
 
   const options = [
     { label: t('quiz.likert.strongly_agree'), value: 4, colorClass: "[@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/10" },
@@ -77,7 +44,7 @@ export default function QuizPage() {
                <Button 
                   key={option.value}
                   className={`w-full text-left justify-start h-auto py-4 px-6 text-base whitespace-normal leading-relaxed transition-all group !border-input !bg-background !shadow-sm border !focus:outline-none !focus:ring-0 !focus:ring-offset-0 !focus-visible:ring-0 !focus-visible:ring-offset-0 !focus-visible:bg-background !focus-visible:text-primary !focus:bg-background !focus:text-primary !text-primary ${option.colorClass}`}
-                  onClick={() => handleAnswer(option.value)}
+                  onClick={() => submitAnswer(option.value)}
                >
                   <span className="font-medium [@media(hover:hover)]:group-hover:font-semibold transition-all">{option.label}</span>
                </Button>
