@@ -16,7 +16,8 @@ export default function ResultPage() {
 
   const handleShare = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.origin);
+      const url = `${window.location.origin}${import.meta.env.BASE_URL}`;
+      await navigator.clipboard.writeText(url);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
