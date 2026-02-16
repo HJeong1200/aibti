@@ -1,0 +1,32 @@
+{
+  "common": {
+    "title": "AI-BTI",
+    "start_test": "Start Test",
+    "retake_test": "Retake Test",
+    "share_result": "Share Result",
+    "footer": "© {{year}} AI-BTI. All rights reserved.",
+    "question_progress": "Question {{current}} of {{total}}",
+    "progress": "Progress"
+  },
+  "landing": {
+    "hero_title": "What is your <1>AI Persona</1>?",
+    "hero_desc": "Discover how you interact with AI tools. Are you a prompt engineer, a code verifier, or an automation wizard?",
+    "feature_16types": "16 Types",
+    "feature_16types_desc": "Detailed analysis of your AI habits.",
+    "feature_dev": "Developer Focused",
+    "feature_dev_desc": "Tailored for modern coding workflows."
+  },
+  "quiz": {
+    "q1": "When you encounter a new error stack trace, what is your first instinct?",
+    "q1_a": "Copy and paste it directly into ChatGPT/Claude.",
+    "q1_b": "Read the error message and check the specific line of code first."
+  },
+  "result": {
+    "your_persona": "Your AI Persona is...",
+    "type_name": "The Autopilot Architect",
+    "type_desc": "Strategic & Automated (Conceptual, Automated, Speed, Trusting)",
+    "analysis": "You view AI essentially as a junior developer who can handle the grunt work while you focus on the big picture architecture. You aren't afraid to let the AI write large chunks of code, provided it fits your mental model.",
+    "strength": "Strength: Rapid prototyping",
+    "weakness": "Weakness: Might miss edge cases"
+  }
+}

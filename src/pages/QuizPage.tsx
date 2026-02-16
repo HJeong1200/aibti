@@ -3,8 +3,10 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function QuizPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [progress, setProgress] = useState(10);
   
@@ -21,7 +23,7 @@ export default function QuizPage() {
     <div className="w-full space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-2">
          <div className="flex justify-between text-xs text-muted-foreground uppercase tracking-wider">
-            <span>Progress</span>
+            <span>{t('common.progress')}</span>
             <span>{progress}%</span>
          </div>
          <Progress value={progress} className="h-2" />
@@ -30,7 +32,7 @@ export default function QuizPage() {
       <Card className="border-2 shadow-lg">
         <CardHeader>
           <CardTitle className="text-xl md:text-2xl leading-relaxed text-center">
-             When you encounter a new error stack trace, what is your first instinct?
+             {t('quiz.q1')}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 pt-4">
@@ -41,7 +43,7 @@ export default function QuizPage() {
                 onClick={handleAnswer}
              >
                 <div className="font-semibold mr-2">A.</div>
-                Copy and paste it directly into ChatGPT/Claude.
+                {t('quiz.q1_a')}
              </Button>
              
              <Button 
@@ -50,11 +52,11 @@ export default function QuizPage() {
                 onClick={handleAnswer}
              >
                 <div className="font-semibold mr-2">B.</div>
-                Read the error message and check the specific line of code first.
+                {t('quiz.q1_b')}
              </Button>
         </CardContent>
         <CardFooter className="justify-center text-xs text-muted-foreground">
-           Question 1 of 12
+           {t('common.question_progress', { current: 1, total: 12 })}
         </CardFooter>
       </Card>
     </div>

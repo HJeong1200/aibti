@@ -1,0 +1,32 @@
+{
+  "common": {
+    "title": "AI-BTI",
+    "start_test": "테스트 시작하기",
+    "retake_test": "테스트 다시하기",
+    "share_result": "결과 공유하기",
+    "footer": "© {{year}} AI-BTI. All rights reserved.",
+    "question_progress": "질문 {{current}} / {{total}}",
+    "progress": "진행률"
+  },
+  "landing": {
+    "hero_title": "당신의 <1>AI 페르소나</1>는 무엇인가요?",
+    "hero_desc": "당신이 AI 도구를 사용하는 스타일을 알아보세요. 당신은 프롬프트 엔지니어인가요, 아니면 코드 검증가인가요?",
+    "feature_16types": "16가지 유형",
+    "feature_16types_desc": "당신의 AI 사용 습관에 대한 상세한 분석.",
+    "feature_dev": "개발자 중심",
+    "feature_dev_desc": "현대적인 코딩 워크플로우에 맞춤화되었습니다."
+  },
+  "quiz": {
+    "q1": "새로운 에러 스택 트레이스를 만났을 때, 가장 먼저 하는 행동은?",
+    "q1_a": "바로 ChatGPT/Claude에 복사해서 붙여넣는다.",
+    "q1_b": "에러 메시지를 읽고 코드의 해당 라인을 먼저 확인한다."
+  },
+  "result": {
+    "your_persona": "당신의 AI 페르소나는...",
+    "type_name": "오토파일럿 아키텍트",
+    "type_desc": "전략적 & 자동화 중심 (개념적, 자동화, 속도, 신뢰)",
+    "analysis": "당신은 AI를 단순한 도구가 아닌, 코딩을 맡길 수 있는 주니어 개발자로 생각합니다. 전체적인 아키텍처를 설계하는 데 집중하며, 큰 틀이 맞다면 세부 구현은 AI에게 맡기는 편입니다.",
+    "strength": "강점: 빠른 프로토타이핑",
+    "weakness": "약점: 엣지 케이스를 놓칠 수 있음"
+  }
+}
