@@ -3,7 +3,9 @@
     "title": "AI-BTI",
     "start_test": "테스트 시작하기",
     "retake_test": "테스트 다시하기",
-    "share_result": "결과 공유하기",
+    "share_aibti": "AI-BTI 공유하기",
+    "copied": "복사됨!",
+    "save_screenshot": "결과를 스크린샷으로 저장하는 것을 잊지 마세요!",
     "footer": "© {{year}} AI-BTI. All rights reserved.",
     "question_progress": "질문 {{current}} / {{total}}",
     "progress": "진행률"

@@ -3,7 +3,9 @@
     "title": "AI-BTI",
     "start_test": "Start Test",
     "retake_test": "Retake Test",
-    "share_result": "Share Result",
+    "share_aibti": "Share AI-BTI",
+    "copied": "Copied!",
+    "save_screenshot": "Don't forget to save your result with a screenshot!",
     "footer": "© {{year}} AI-BTI. All rights reserved.",
     "question_progress": "Question {{current}} of {{total}}",
     "progress": "Progress"

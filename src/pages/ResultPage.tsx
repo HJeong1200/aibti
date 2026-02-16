@@ -1,16 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Share2, RefreshCw } from "lucide-react";
+import { Share2, RefreshCw, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocation, Navigate } from "react-router-dom";
 import { calculateScore, PersonalityResult } from "@/utils/scoring";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 export default function ResultPage() {
   const { t } = useTranslation();
   const location = useLocation();
   const answers = location.state?.answers as Record<number, number> | undefined;
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.origin);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   const result: PersonalityResult | null = useMemo(() => {
     if (!answers) return null;
@@ -64,17 +75,25 @@ export default function ResultPage() {
          </CardContent>
       </Card>
 
-      <div className="flex gap-4 justify-center">
-         <Button variant="outline" className="gap-2" asChild>
-            <Link to="/test">
-               <RefreshCw size={16} />
-               {t('common.retake_test')}
-            </Link>
-         </Button>
-         <Button className="gap-2 shadow-md">
-            <Share2 size={16} />
-            {t('common.share_result')}
-         </Button>
+      <div className="flex flex-col items-center gap-4 mt-8">
+         <p className="text-sm text-muted-foreground animate-pulse">
+            {t('common.save_screenshot')}
+         </p>
+         <div className="flex gap-4 justify-center w-full">
+            <Button variant="outline" className="gap-2 min-w-[140px]" asChild>
+               <Link to="/test">
+                  <RefreshCw size={16} />
+                  {t('common.retake_test')}
+               </Link>
+            </Button>
+            <Button 
+               className="gap-2 min-w-[140px] shadow-md transition-all duration-300"
+               onClick={handleShare}
+            >
+               {isCopied ? <Check size={16} /> : <Share2 size={16} />}
+               {isCopied ? t('common.copied', { defaultValue: 'Copied!' }) : t('common.share_aibti')}
+            </Button>
+         </div>
       </div>
     </div>
   );

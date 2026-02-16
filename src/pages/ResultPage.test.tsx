@@ -42,7 +42,12 @@ describe('ResultPage', () => {
     );
 
     expect(screen.getByRole('link', { name: /Retake Test/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Share Result/i })).toBeInTheDocument();
+    
+    // Check for "Share AI-BTI" instead of "Share Result"
+    expect(screen.getByRole('button', { name: /Share AI-BTI/i })).toBeInTheDocument();
+
+    // Check for screenshot prompt
+    expect(screen.getByText(/Don't forget to save your result with a screenshot!/i)).toBeInTheDocument();
   });
 
   it('redirects to test if no answers provided', async () => {
