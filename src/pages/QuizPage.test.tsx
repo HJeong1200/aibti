@@ -4,44 +4,74 @@ import QuizPage from './QuizPage';
 import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../i18n';
+import { questions } from '@/data/questions';
+
+// Helper to render component
+const renderQuizPage = () => {
+  render(
+    <I18nextProvider i18n={i18n}>
+      <BrowserRouter>
+        <QuizPage />
+      </BrowserRouter>
+    </I18nextProvider>
+  );
+};
 
 describe('QuizPage', () => {
-  it('renders question', () => {
-    // Ensure translation is loaded
-    i18n.changeLanguage('ko');
-    
-    render(
-      <I18nextProvider i18n={i18n}>
-        <BrowserRouter>
-          <QuizPage />
-        </BrowserRouter>
-      </I18nextProvider>
-    );
+  it('renders a question from the list', async () => {
+    // Ensure translation is loaded and set to Korean for test
+    await i18n.changeLanguage('ko');
+    renderQuizPage();
 
-    // q1: "새로운 에러 스택 트레이스를 만났을 때, 가장 먼저 하는 행동은?"
-    expect(screen.getByText(/새로운 에러 스택 트레이스를 만났을 때/i)).toBeInTheDocument();
+    // With randomization, we can't know for sure which question is displayed.
+    // But it should be one of the questions in the list.
+    // We can get the text displayed in the card title and check if it exists in data.
+    
+    // We expect a heading with level 2 or just the simplified check:
+    // screen.getByRole('heading', { level: undefined }) might return multiple.
+    // In our component: CardTitle renders a div or h3 by default? shadcn CardTitle is usually h3.
+    // Let's just getAllByRole('heading') or generic text match.
+    // Actually, checking if *any* valid question text is on screen is enough.
+    
+    // CardTitle in shadcn might render as a div or h3. 
+    // The previous error showed <div class="font-semibold tracking-tight text-xl md:text-2xl leading-relaxed text-center">...</div>
+    // So it's not a heading role by default.
+    // Let's find by class or just check if any of the possible texts is present.
+    
+    // We can iterate and check if any is present.
+    const possibleQuestions = questions.map(q => q.text.ko);
+    const found = possibleQuestions.some(qText => screen.queryByText(qText));
+    
+    expect(found).toBe(true);
   });
 
-  it('updates progress on answer', () => {
-    render(
-      <I18nextProvider i18n={i18n}>
-        <BrowserRouter>
-          <QuizPage />
-        </BrowserRouter>
-      </I18nextProvider>
-    );
+  it('renders Likert scale options', async () => {
+    await i18n.changeLanguage('ko');
+    renderQuizPage();
 
-    // Initial progress 10%
-    expect(screen.getByText('10%')).toBeInTheDocument();
+    // Check for "매우 그렇다" (Strongly Agree)
+    // We can check just one or all.
+    expect(screen.getByText('매우 그렇다')).toBeInTheDocument();
+    expect(screen.getByText('매우 아니다')).toBeInTheDocument();
+  });
 
-    // Click option A
+  it('updates progress on answer', async () => {
+    await i18n.changeLanguage('ko');
+    renderQuizPage();
+
+    // Initial progress should be 0% at start (1st question of 48)
+    // Or (0/48)*100 = 0?
+    // Let's check what we implemented: (currentQuestionIndex) / total * 100
+    // So 0%.
+    expect(screen.getByText('0%')).toBeInTheDocument();
+
+    // Click "Strongly Agree" button (first one is usually value 4, but let's just click any button)
     const buttons = screen.getAllByRole('button');
-    // First button might be... wait, there are no other buttons?
-    // Options are buttons.
-    const optionA = buttons[0]; 
-    fireEvent.click(optionA);
+    fireEvent.click(buttons[0]);
 
-    // Progress 20%
-    expect(screen.getByText('20%')).toBeInTheDocument();
+    // Progress should update.
+    // 1 / 48 * 100 = 2.0833...
+    // Math.round(2.0833) = 2.
+    expect(screen.getByText('2%')).toBeInTheDocument();
   });
 });

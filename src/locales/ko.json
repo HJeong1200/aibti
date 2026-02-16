@@ -17,9 +17,12 @@
     "feature_dev_desc": "현대적인 코딩 워크플로우에 맞춤화되었습니다."
   },
   "quiz": {
-    "q1": "새로운 에러 스택 트레이스를 만났을 때, 가장 먼저 하는 행동은?",
-    "q1_a": "바로 ChatGPT/Claude에 복사해서 붙여넣는다.",
-    "q1_b": "에러 메시지를 읽고 코드의 해당 라인을 먼저 확인한다."
+    "likert": {
+      "strongly_agree": "매우 그렇다",
+      "agree": "그렇다",
+      "disagree": "아니다",
+      "strongly_disagree": "매우 아니다"
+    }
   },
   "result": {
     "your_persona": "당신의 AI 페르소나는...",

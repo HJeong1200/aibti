@@ -17,9 +17,12 @@
     "feature_dev_desc": "Tailored for modern coding workflows."
   },
   "quiz": {
-    "q1": "When you encounter a new error stack trace, what is your first instinct?",
-    "q1_a": "Copy and paste it directly into ChatGPT/Claude.",
-    "q1_b": "Read the error message and check the specific line of code first."
+    "likert": {
+      "strongly_agree": "Strongly Agree",
+      "agree": "Agree",
+      "disagree": "Disagree",
+      "strongly_disagree": "Strongly Disagree"
+    }
   },
   "result": {
     "your_persona": "Your AI Persona is...",
