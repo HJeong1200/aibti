@@ -74,4 +74,30 @@ describe('QuizPage', () => {
     // Math.round(2.0833) = 2.
     expect(screen.getByText('2%')).toBeInTheDocument();
   });
+
+  it('has correct classes for mobile hover handling', async () => {
+    renderQuizPage();
+    const buttons = screen.getAllByRole('button');
+    const button = buttons[0];
+
+    // Check that hover effects are guarded by @media(hover:hover)
+    expect(button.className).toContain('[@media(hover:hover)]:hover:bg-primary/10');
+    
+    // Check that there are NO active:bg-* classes (which cause gray shade on tap)
+    expect(button.className).not.toContain('active:bg-');
+
+    // Check for focus background reset
+    expect(button.className).toContain('!focus:bg-background');
+
+    // Check that we manually applied base styles (border, bg, shadow) to replace variant="outline"
+    expect(button.className).toContain('!border-input');
+    expect(button.className).toContain('!bg-background');
+
+    // Check for font-weight media query guard
+    const span = button.querySelector('span');
+    expect(span?.className).toContain('[@media(hover:hover)]:group-hover:font-semibold');
+
+    // Check for text color reset
+    expect(button.className).toContain('!text-primary');
+  });
 });

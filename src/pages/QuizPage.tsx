@@ -44,10 +44,10 @@ export default function QuizPage() {
   };
 
   const options = [
-    { label: t('quiz.likert.strongly_agree'), value: 4, colorClass: "hover:border-primary hover:bg-primary/10" },
-    { label: t('quiz.likert.agree'), value: 3, colorClass: "hover:border-primary/70 hover:bg-primary/5" },
-    { label: t('quiz.likert.disagree'), value: 2, colorClass: "hover:border-destructive/70 hover:bg-destructive/5" },
-    { label: t('quiz.likert.strongly_disagree'), value: 1, colorClass: "hover:border-destructive hover:bg-destructive/10" },
+    { label: t('quiz.likert.strongly_agree'), value: 4, colorClass: "[@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/10" },
+    { label: t('quiz.likert.agree'), value: 3, colorClass: "[@media(hover:hover)]:hover:border-primary/70 [@media(hover:hover)]:hover:bg-primary/5" },
+    { label: t('quiz.likert.disagree'), value: 2, colorClass: "[@media(hover:hover)]:hover:border-destructive/70 [@media(hover:hover)]:hover:bg-destructive/5" },
+    { label: t('quiz.likert.strongly_disagree'), value: 1, colorClass: "[@media(hover:hover)]:hover:border-destructive [@media(hover:hover)]:hover:bg-destructive/10" },
   ];
 
   if (!currentQuestion) return null; // Safety check
@@ -72,11 +72,10 @@ export default function QuizPage() {
              {options.map((option) => (
                <Button 
                   key={option.value}
-                  variant="outline" 
-                  className={`w-full text-left justify-start h-auto py-4 px-6 text-base whitespace-normal leading-relaxed transition-all group ${option.colorClass}`}
+                  className={`w-full text-left justify-start h-auto py-4 px-6 text-base whitespace-normal leading-relaxed transition-all group !border-input !bg-background !shadow-sm border !focus:outline-none !focus:ring-0 !focus:ring-offset-0 !focus-visible:ring-0 !focus-visible:ring-offset-0 !focus-visible:bg-background !focus-visible:text-primary !focus:bg-background !focus:text-primary !text-primary ${option.colorClass}`}
                   onClick={() => handleAnswer(option.value)}
                >
-                  <span className="font-medium group-hover:font-semibold transition-all">{option.label}</span>
+                  <span className="font-medium [@media(hover:hover)]:group-hover:font-semibold transition-all">{option.label}</span>
                </Button>
              ))}
         </CardContent>
