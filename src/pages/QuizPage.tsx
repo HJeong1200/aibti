@@ -38,8 +38,12 @@ export default function QuizPage() {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       // Finished
-      console.log('Answers:', newAnswers);
-      navigate("/result");
+      const answersMap: Record<number, number> = {};
+      newAnswers.forEach((score, index) => {
+        const questionId = shuffledQuestions[index].id;
+        answersMap[questionId] = score;
+      });
+      navigate("/result", { state: { answers: answersMap } });
     }
   };
 

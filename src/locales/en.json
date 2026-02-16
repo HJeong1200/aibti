@@ -26,10 +26,86 @@
   },
   "result": {
     "your_persona": "Your AI Persona is...",
-    "type_name": "The Autopilot Architect",
-    "type_desc": "Strategic & Automated (Conceptual, Automated, Speed, Trusting)",
-    "analysis": "You view AI essentially as a junior developer who can handle the grunt work while you focus on the big picture architecture. You aren't afraid to let the AI write large chunks of code, provided it fits your mental model.",
-    "strength": "Strength: Rapid prototyping",
-    "weakness": "Weakness: Might miss edge cases"
+    "analysis": "Analysis",
+    "VKHG": {
+      "title": "The Intuitive Prototyper",
+      "quote": "Turning big ideas into reality with a friendly touch.",
+      "desc": "You thrive on vision and speed. You provide a general concept, treat the AI like a creative partner, and love seeing the results pop up instantly in your IDE. You value the \"vibe\" and trust the AI to fill in the blanks while you maintain a positive, collaborative environment."
+    },
+    "VKHC": {
+      "title": "The Agile Visionary",
+      "quote": "Piping big dreams directly into the machine.",
+      "desc": "You combine high-level conceptual thinking with the power of the terminal. You prefer to give a broad prompt and let a CLI agent handle the execution in one go. You are polite to your tools but prefer the speed and automation of a terminal-first workflow."
+    },
+    "VKTG": {
+      "title": "The Speed Alchemist",
+      "quote": "High-speed creation through direct intuition.",
+      "desc": "You want results, and you want them now. You use high-level \"vibe\" prompts but keep the interaction strictly professional and transactional. You love the visual feedback of the IDE and expect the AI to deliver a working prototype in a single shot without any \"yapping.\""
+    },
+    "VKTC": {
+      "title": "The Ghost Pilot",
+      "quote": "Commanding the terminal with a silent, conceptual hand.",
+      "desc": "You are a minimalist who values efficiency. You drop a conceptual command into the terminal and expect the AI to execute it perfectly without discussion. You don't need a GUI or small talk—just raw, automated output based on your intuitive direction."
+    },
+    "VRHG": {
+      "title": "The Collaborative Designer",
+      "quote": "Building a masterpiece through a shared creative journey.",
+      "desc": "For you, coding with AI is a conversation. You start with a feeling or a style and refine it over hundreds of messages in your IDE. You treat the AI as a true teammate, valuing the polite, iterative process of making something great together."
+    },
+    "VRHC": {
+      "title": "The Terminal Partner",
+      "quote": "Iterating on ideas through the power of the shell.",
+      "desc": "You love the flexibility of the terminal but enjoy a long, polite dialogue with your AI agents. You provide conceptual goals and work through them step-by-step in the CLI, treating the AI as a knowledgeable partner in your systematic exploration."
+    },
+    "VRTG": {
+      "title": "The Iterative Director",
+      "quote": "Polishing the vision with disciplined precision.",
+      "desc": "You lead the project with a strong sense of style but a firm hand. You use the IDE to continuously refine the AI's output, keeping the relationship strictly professional. You don't mind a long chat as long as it results in the exact \"vibe\" you were looking for."
+    },
+    "VRTC": {
+      "title": "The Shell Strategist",
+      "quote": "Deep-diving into concepts through the command line.",
+      "desc": "You are a power user who refines intuitive ideas through the terminal. You don't need a GUI to see progress; you prefer the raw interaction of the CLI to iterate on your vision. You are a cold taskmaster who values the iterative path to a systematic solution."
+    },
+    "SKHG": {
+      "title": "The Precise Teammate",
+      "quote": "Clear instructions for a smooth, friendly workflow.",
+      "desc": "You believe in clarity and kindness. You provide detailed specs and \"few-shot\" examples in your IDE, and you appreciate the AI's polite responses. You aim for perfect one-shot results by being as clear as possible from the start."
+    },
+    "SKHC": {
+      "title": "The Logic Commander",
+      "quote": "Structured automation with a polite touch.",
+      "desc": "You are the master of the structured terminal prompt. You provide detailed architectural rules and expect the CLI agent to follow them perfectly. You maintain a polite tone, but your focus is on the precision and logic of the one-shot execution."
+    },
+    "SKTG": {
+      "title": "The Efficiency Expert",
+      "quote": "Strict specs for flawless, visual execution.",
+      "desc": "You treat your prompts like legal documents. You provide exact requirements in the IDE and expect the AI to execute them without conversation. You value the \"Accept/Reject\" workflow and want the highest quality code in the shortest amount of time."
+    },
+    "SKTC": {
+      "title": "The Automation Master",
+      "quote": "Pure logic, pure code, pure terminal.",
+      "desc": "You are the ultimate efficiency machine. You drop detailed, structured specs into the terminal and expect a perfect file in return. No small talk, no GUI, just pure imperative commands and systematic one-shot results."
+    },
+    "SRHG": {
+      "title": "The Quality Architect",
+      "quote": "Collaborating on every detail to ensure perfection.",
+      "desc": "You combine high standards with a friendly, iterative approach. You provide strict specs in the IDE but enjoy discussing the implementation details with the AI over time. You value both technical precision and a positive working relationship."
+    },
+    "SRHC": {
+      "title": "The Systems Engineer",
+      "quote": "Building robust systems through structured terminal dialogue.",
+      "desc": "You are methodical and professional. You use the terminal to refine complex, spec-heavy logic through a polite, step-by-step dialogue. You treat the AI as a professional peer that helps you verify every line of your system's architecture."
+    },
+    "SRTG": {
+      "title": "The Methodical Supervisor",
+      "quote": "Strict oversight for high-precision iteration.",
+      "desc": "You are the guardian of the codebase. You provide detailed requirements and use the IDE's visual tools to iterate until the logic is flawless. You keep a professional distance from the AI, focusing entirely on the disciplined refinement of the code."
+    },
+    "SRTC": {
+      "title": "The Code Purist",
+      "quote": "Refining logic in the terminal with absolute discipline.",
+      "desc": "You are the most systematic developer. You provide heavy specs and use terminal agents to refine code through a strictly imperative, long-form loop. You don't want help or \"vibes\"—you want a tool that can handle disciplined, high-precision engineering."
+    }
   }
 }
