@@ -87,23 +87,21 @@ describe('QuizPage', () => {
     // Check that there are NO active:bg-* classes (which cause gray shade on tap)
     expect(button.className).not.toContain('active:bg-');
 
-    // Check for focus background reset
-    // expect(button.className).toContain('!focus:bg-background');
+    // Check for focus background reset (not explicitly overridden with ! anymore, but we can check for standard focus ring if needed, or skip specific focus override check if it's default)
+    // The user removed !focus:bg-background. Let's check for the new hover effect instead.
+    expect(button.className).toContain('hover:bg-transparent');
 
     // Check that we manually applied base styles (border, bg, shadow) to replace variant="outline"
-    // expect(button.className).toContain('!border-input');
-    // expect(button.className).toContain('!bg-background');
+    // The user now uses standard 'border' class and 'shadow-sm'
+    expect(button.className).toContain('border');
+    expect(button.className).toContain('shadow-sm');
 
     // Check for font-weight media query guard
     const span = button.querySelector('span');
     expect(span?.className).toContain('[@media(hover:hover)]:group-hover:font-semibold');
 
     // Check for text color reset (only if it exists in colorClass, which varies)
-    // The first button is "Strongly Agree" -> text-primary
-    // expect(button.className).toContain('text-primary'); 
-    // Wait, the first button colorClass is: ... hover:text-primary. 
-    // The test renders and clicks. 
-    // Let's just check for the presence of the hover class which allows text color change.
+    // The first button "Strongly Agree" has hover:text-primary
     expect(button.className).toContain('[@media(hover:hover)]:hover:text-primary');
   });
 });
