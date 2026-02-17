@@ -48,7 +48,7 @@ export const DetailedAnalysis = ({ result }: DetailedAnalysisProps) => {
                  <p className="text-sm mt-1">
                     <span className="font-medium">Strengths:</span> {t(`dimensions.energy.${result.energy.trait}.strengths`)}
                  </p>
-                 <p className="text-sm mt-1 text-red-500/80 dark:text-red-400/80">
+                 <p className="text-sm mt-1 text-destructive">
                     <span className="font-medium">Pitfall:</span> {t(`dimensions.energy.${result.energy.trait}.pitfall`)}
                  </p>
               </div>
@@ -70,7 +70,7 @@ export const DetailedAnalysis = ({ result }: DetailedAnalysisProps) => {
                  <p className="text-sm mt-1">
                     <span className="font-medium">Strengths:</span> {t(`dimensions.interaction.${result.interaction.trait}.strengths`)}
                  </p>
-                 <p className="text-sm mt-1 text-red-500/80 dark:text-red-400/80">
+                 <p className="text-sm mt-1 text-destructive">
                     <span className="font-medium">Pitfall:</span> {t(`dimensions.interaction.${result.interaction.trait}.pitfall`)}
                  </p>
               </div>
@@ -92,7 +92,7 @@ export const DetailedAnalysis = ({ result }: DetailedAnalysisProps) => {
                  <p className="text-sm mt-1">
                     <span className="font-medium">Strengths:</span> {t(`dimensions.relationship.${result.relationship.trait}.strengths`)}
                  </p>
-                 <p className="text-sm mt-1 text-red-500/80 dark:text-red-400/80">
+                 <p className="text-sm mt-1 text-destructive">
                     <span className="font-medium">Pitfall:</span> {t(`dimensions.relationship.${result.relationship.trait}.pitfall`)}
                  </p>
               </div>
@@ -114,7 +114,7 @@ export const DetailedAnalysis = ({ result }: DetailedAnalysisProps) => {
                  <p className="text-sm mt-1">
                     <span className="font-medium">Strengths:</span> {t(`dimensions.battleground.${result.battleground.trait}.strengths`)}
                  </p>
-                 <p className="text-sm mt-1 text-red-400/80">
+                 <p className="text-sm mt-1 text-destructive">
                     <span className="font-medium">Pitfall:</span> {t(`dimensions.battleground.${result.battleground.trait}.pitfall`)}
                  </p>
               </div>

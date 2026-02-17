@@ -28,7 +28,19 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+    
+    /* New Colors */
+    --key: 131.7 29.1% 31.0%; /* #386641 */
+    --sub-1: 45.8 100% 68.6%; /* #FFD95F */
+    --sub-2: 46.4 100% 87.1%; /* #FFF0BD */
+    --brand-red: 341.7 100% 44.9%; /* #E50046 */
+
+    /* Map to specific roles */
+    --primary: var(--key);
+    --primary-foreground: 0 0% 100%; /* White text on dark green */
+    --destructive: var(--brand-red);
+    --destructive-foreground: 0 0% 98%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -37,15 +49,15 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    --primary: var(--key);
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: var(--brand-red);
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
@@ -54,7 +66,13 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
+    
+    /* New Colors repeat for dark mode if same */
+    --key: 131.7 29.1% 31.0%;
+    --sub-1: 45.8 100% 68.6%;
+    --sub-2: 46.4 100% 87.1%;
+    --brand-red: 341.7 100% 44.9%;
   }
 }
 
@@ -65,5 +83,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    word-break: keep-all; /* Prevent mid-word breaks for Korean text */
   }
 }
