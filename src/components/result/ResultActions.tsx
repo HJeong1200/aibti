@@ -24,8 +24,8 @@ export const ResultActions = ({ onShare, isCopied }: ResultActionsProps) => {
              </Link>
           </Button>
           <Button 
-             variant="outline"
-             className="gap-2 min-w-[140px] hover:bg-transparent"
+             variant="default"
+             className="gap-2 min-w-[140px]"
              onClick={onShare}
           >
              {isCopied ? <Check size={16} /> : <Share2 size={16} />}
